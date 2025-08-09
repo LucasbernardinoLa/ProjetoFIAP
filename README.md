@@ -45,3 +45,7 @@ A API utiliza JWT Bearer Authentication. Para acessar endpoints protegidos:
 2. Copie o token retornado
 3. Clique no botão "Authorize" no Swagger
 4. Digite: `Bearer {seu-token}`
+
+
+![Fluxo DDD Fiap](https://github.com/user-attachments/assets/0f482994-f613-4036-9a2a-3a2e47deea38)
+
