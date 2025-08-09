@@ -1,0 +1,24 @@
+@ProjetoFIAP_HostAddress = http://localhost:5046
+@authToken = 
+
+### Login como admin
+POST {{ProjetoFIAP_HostAddress}}/api/auth/login?username=admin&password=admin
+Content-Type: application/json
+
+{}
+
+### Login como user
+POST {{ProjetoFIAP_HostAddress}}/api/auth/login?username=user&password=user
+Content-Type: application/json
+
+{}
+
+### Acessar endpoint apenas para Admin
+GET {{ProjetoFIAP_HostAddress}}/api/secure/admin
+Authorization: Bearer {{authToken}}
+
+### Acessar endpoint acessível por qualquer usuário autenticado
+GET {{ProjetoFIAP_HostAddress}}/api/secure/user
+Authorization: Bearer {{authToken}}
+
+###
