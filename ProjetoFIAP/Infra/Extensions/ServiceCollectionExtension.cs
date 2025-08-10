@@ -114,14 +114,6 @@ namespace ProjetoFIAP.Api.Infra.Extensions
             return services;
         }
 
-        public static IServiceCollection AddMyApplicationServices(this IServiceCollection services)
-        {
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IGameRepository, GameRepository>();
-            
-            return services;
-        }
-
         public static IServiceCollection AddMyInfra(this IServiceCollection services, IConfiguration configuration)
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection") 

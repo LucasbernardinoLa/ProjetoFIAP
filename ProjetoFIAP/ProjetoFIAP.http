@@ -1,24 +1,63 @@
-@ProjetoFIAP_HostAddress = http://localhost:5046
-@authToken = 
+@baseUrl = http://localhost:5046
 
-### Login como admin
-POST {{ProjetoFIAP_HostAddress}}/api/auth/login?username=admin&password=admin
+### Login como Admin
+# @name loginAdmin
+POST {{baseUrl}}/api/auth/login
 Content-Type: application/json
 
-{}
+{
+    "email": "admin@fiap.com",
+    "password": "Admin@123456"
+}
 
-### Login como user
-POST {{ProjetoFIAP_HostAddress}}/api/auth/login?username=user&password=user
+### Extrair token do admin
+@adminToken = {{loginAdmin.response.body.$.token}}
+
+### Login como User normal
+# @name loginUser
+POST {{baseUrl}}/api/auth/login
 Content-Type: application/json
 
-{}
+{
+    "email": "user@fiap.com",
+    "password": "User@123456"
+}
 
-### Acessar endpoint apenas para Admin
-GET {{ProjetoFIAP_HostAddress}}/api/secure/admin
-Authorization: Bearer {{authToken}}
+### Extrair token do user
+@userToken = {{loginUser.response.body.$.token}}
 
-### Acessar endpoint acessível por qualquer usuário autenticado
-GET {{ProjetoFIAP_HostAddress}}/api/secure/user
-Authorization: Bearer {{authToken}}
+### Registrar novo usuário
+POST {{baseUrl}}/api/users/register
+Content-Type: application/json
 
-###
+{
+    "name": "Novo Usuário",
+    "email": "novo@email.com",
+    "password": "Novo@123456"
+}
+
+### Listar todos os usuários (requer Admin)
+GET {{baseUrl}}/api/users
+Authorization: Bearer {{adminToken}}
+
+### Listar todos os jogos
+GET {{baseUrl}}/api/games
+Authorization: Bearer {{userToken}}
+
+### Obter jogo por ID
+GET {{baseUrl}}/api/games/3fa85f64-5717-4562-b3fc-2c963f66afa6
+Authorization: Bearer {{userToken}}
+
+### Criar novo jogo (requer Admin)
+POST {{baseUrl}}/api/games
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+    "title": "Novo Jogo",
+    "description": "Descrição do novo jogo",
+    "price": 299.99,
+    "releaseDate": "2023-01-01T00:00:00",
+    "developer": "Desenvolvedora",
+    "publisher": "Publicadora"
+}
