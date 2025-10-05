@@ -5,7 +5,7 @@ VisualStudioVersion = 17.14.36202.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoFIAP.Api", "ProjetoFIAP\ProjetoFIAP.Api.csproj", "{11C8BF99-45F1-4FFE-91F8-A240BDCE2B04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoFIAP.Tests", "ProjetoFiap.Tests\ProjetoFIAP.Tests.csproj", "{F0482270-17DD-4DA2-ABF9-914CB5DA1CC2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoFIAP.Tests", "ProjetoFIAP.Tests/ProjetoFIAP.Tests.csproj", "{F0482270-17DD-4DA2-ABF9-914CB5DA1CC2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{380A7511-A354-6D7A-0CC0-8FA1F1BA7B6C}"
 	ProjectSection(SolutionItems) = preProject

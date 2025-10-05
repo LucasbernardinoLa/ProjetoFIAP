@@ -2,11 +2,12 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 COPY *.sln ./
-COPY ProjetoFIAP ./ProjetoFIAP
-COPY ProjetoFiap.Tests ./ProjetoFiap.Tests
+COPY ProjetoFIAP/ProjetoFIAP.Api.csproj ProjetoFIAP/
+COPY ProjetoFIAP.Tests/ProjetoFIAP.Tests.csproj ProjetoFIAP.Tests/
 
 RUN dotnet restore ProjetoFIAP.sln
 
+COPY . .
 
 RUN dotnet publish ProjetoFIAP/ProjetoFIAP.Api.csproj -c Release -o /app/publish --no-restore
 
