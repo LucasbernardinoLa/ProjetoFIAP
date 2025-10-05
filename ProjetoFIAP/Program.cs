@@ -3,6 +3,7 @@ using ProjetoFIAP.Api.Configurations;
 using ProjetoFIAP.Api.Infra.Data;
 using ProjetoFIAP.Api.Infra.Extensions;
 using ProjetoFIAP.Api.Infra.Middleware;
+using Prometheus;
 
 GenericConfigurations.ConfigureCultureInfo();
 
@@ -41,6 +42,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseHttpMetrics();
+app.MapMetrics("/metrics");
 
 app.UseHttpsRedirection();
 

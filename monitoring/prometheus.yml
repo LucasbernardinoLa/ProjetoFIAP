@@ -1,0 +1,8 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'projeto_fiap'
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['host.docker.internal:5046'] # em Windows/macOS. Em Linux use o host IP ou coloque app no compose.

@@ -45,7 +45,7 @@ GET {{baseUrl}}/api/games
 Authorization: Bearer {{userToken}}
 
 ### Obter jogo por ID
-GET {{baseUrl}}/api/games/3fa85f64-5717-4562-b3fc-2c963f66afa6
+GET {{baseUrl}}/api/games/3e4ccaa8-1ae2-499c-91c1-148790c79753
 Authorization: Bearer {{userToken}}
 
 ### Criar novo jogo (requer Admin)
