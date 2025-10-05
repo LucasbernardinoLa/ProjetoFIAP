@@ -4,13 +4,12 @@ WORKDIR /src
 ENV NUGET_PACKAGES=/root/.nuget/packages
 
 COPY nuget.config ./
-COPY *.sln ./
-COPY ProjetoFIAP/ProjetoFIAP.Api.csproj ProjetoFIAP/
-COPY ProjetoFIAP.Tests/ProjetoFIAP.Tests.csproj ProjetoFIAP.Tests/
-
-RUN dotnet restore ProjetoFIAP.sln
 
 COPY . .
+
+RUN find . -type d \( -name bin -o -name obj \) -prune -exec rm -rf {} + || true
+
+RUN dotnet restore ProjetoFIAP.sln
 
 RUN dotnet publish ProjetoFIAP/ProjetoFIAP.Api.csproj -c Release -o /app/publish --no-restore
 
